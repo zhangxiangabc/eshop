@@ -16,7 +16,7 @@
         String res=(String)object;
         if(res!=null){
     %>
-            <h3 style="color: red;text-align: center"><br>注册成功！</br>三秒后自动跳转，若未跳转，请点击<a href="login.jsp">连接</a></h3>
+            <h3 style="color: red;text-align: center"><br>注册成功！</br>三秒后自动跳转，若未跳转，请点击<a href="login.jsp">链接</a></h3>
             <%response.setHeader("Refresh","3,URL=login.jsp");%>
     <%
         }else{

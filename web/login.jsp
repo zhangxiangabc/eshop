@@ -20,11 +20,13 @@
             <label>用户名</label>
         </div>
         <div class="inputBox">
-            <input type="password" name="password" required="">
+            <input type="password" name="password" required
             <label>密码</label>
         </div>
-        <input type="submit" name="" value="登录">
-        <input type="button"  value="注册" onclick=>
+        <input type="submit" name="" value="登录">。
+        <input type="button"  value="注册" onclick="window.location.href='regist.jsp'">
+        <input type="button"  value="忘记密码" onclick="window.location.href='forgetpwd.jsp'">
+
     </form>
 </div>
 </body>

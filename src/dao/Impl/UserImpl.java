@@ -94,4 +94,31 @@ public class UserImpl implements UserDao {
         return user;
     }
 
+
+    @Override
+    public int UserForgetPwd(String user_account, String user_name, String new_password) {
+        Connection connection=null;
+        PreparedStatement preparedStatement=null;
+        PreparedStatement preparedStatement1=null;
+        ResultSet res=null;
+        try{
+            connection= JDBCUtil.getConnection();
+            String sql="select user_name from user where user_account=?";
+            preparedStatement=connection.prepareStatement(sql);
+            preparedStatement.setString(1,user_account);
+            res=preparedStatement.executeQuery();
+            if(res.next()&&res.getString("user_name").equals(user_name)){
+                sql="update user set password=? where user_account= ?";
+                preparedStatement1=connection.prepareStatement(sql);
+                preparedStatement1.setString(1,new_password);
+                preparedStatement1.setString(2,user_account);
+                return preparedStatement1.executeUpdate();
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
 }
